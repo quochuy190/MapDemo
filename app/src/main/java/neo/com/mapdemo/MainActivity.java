@@ -19,7 +19,7 @@ import android.widget.Button;
  * @since 1.0
  */
 public class MainActivity extends AppCompatActivity {
-    Button btn_stype_map, btn_location, btn_add_polyline;
+    Button btn_stype_map, btn_location, btn_add_polyline, btn_chi_duong;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +47,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MapsActivity.class));
             }
         });
+        btn_add_polyline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ActivityDerection.class));
+            }
+        });
     }
 
     private void init() {
         btn_stype_map = findViewById(R.id.btn_type_map);
         btn_location = findViewById(R.id.btn_get_location);
         btn_add_polyline = findViewById(R.id.btn_ve_duong);
+        btn_chi_duong = findViewById(R.id.btn_chi_duong);
     }
 }

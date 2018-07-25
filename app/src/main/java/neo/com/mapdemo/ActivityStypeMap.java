@@ -50,6 +50,7 @@ public class ActivityStypeMap extends AppCompatActivity implements OnMapReadyCal
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
         spinner = findViewById(R.id.spinner_stype);
         arrStype = new ArrayList<>();
         arrStype.addAll(Arrays.asList(getResources().getStringArray(R.array.arrStype)));
@@ -59,31 +60,30 @@ public class ActivityStypeMap extends AppCompatActivity implements OnMapReadyCal
         adapterStype.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapterStype);
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                xuLyDoiMapType(position);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
     }
 
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng sydney = new LatLng(21.050790, 105.783510);
+        LatLng sydney = new LatLng(21.050876, 105.783486);
         mMap.addMarker(new MarkerOptions()
                 .position(sydney)
                 .title("IMIC")
                 .snippet("iMic - Nơi đào tạo lập trình viên hàng đầu Việt Nam. ")
         );
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 13));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 14));
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                xuLyDoiMapType(position);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     private void xuLyDoiMapType(int position) {

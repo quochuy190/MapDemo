@@ -23,7 +23,7 @@
         android:layout_height="wrap_content" />
     <Button
         android:layout_marginTop="5dp"
-        android:text="Show stype map"
+        android:text="Chỉ đường"
         android:id="@+id/btn_chi_duong"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
